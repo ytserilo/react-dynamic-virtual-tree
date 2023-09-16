@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-virtual-tree",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Library for visualizing nested lists with dynamically changing sizes.",
   "author": "ytserilo",
   "keywords": [
