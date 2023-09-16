@@ -137,7 +137,9 @@ export class VirtualTree extends Listener {
         break;
       }
     }
-
+    if (endIndex <= startIndex) {
+      endIndex = this.markup.length;
+    }
     return [
       startIndex - overScan < 0 ? 0 : startIndex - overScan,
       endIndex + overScan > this.markup.length ? this.markup.length : endIndex + overScan,

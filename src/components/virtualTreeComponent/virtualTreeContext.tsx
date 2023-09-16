@@ -14,11 +14,10 @@ export interface VirtualTreeContextInterface {
   reInit: (listItem: ListItem, layer: Layer) => void;
 }
 
-const root = new VirtualTree();
 export const ROOT_ID = "root";
 
 export const VirtualTreeContext = createContext<VirtualTreeContextInterface>({
-  root,
+  root: new VirtualTree(),
   offset: [0, 0],
   ready: false,
   setReady: () => {},
@@ -35,6 +34,7 @@ export const VirtualTreeProvider = ({ children, height, className }: VirtualTree
   const [ready, setReady] = useState<boolean>(false);
   const [listItem, setListItem] = useState<ListItem>(new ListItem(ROOT_ID));
   const [layer, setLayer] = useState<Layer>(new Layer(listItem));
+  const [root] = useState<VirtualTree>(new VirtualTree());
 
   useEffect(() => {
     return root.onOffset(setOffset);
